@@ -34,7 +34,7 @@ Continuation
 The `await` keyword introduces a continuation - allowing you to get back to the original context, or thread.
 Code *after* an await statement, will be executed once a Task completes successfully - then you will be back on the continuation.
 
-NOTE: `async void` is evil. Unless used in the scenario where EventHandlers are called. Otherwise AVOID.
+NOTE: `async void` is evil. Unless used in the scenario where EventHandlers are called. Otherwise AVOID. Otherwise always use `async Task` for "void" async methods.
 
 #### Naming
 
