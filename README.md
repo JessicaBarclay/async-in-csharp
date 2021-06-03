@@ -12,6 +12,13 @@ Asynchronous programming allows an application to run a unit of work separately 
 
 The recommended asynchronous pattern to follow in modern .NET is the [Task-based Asynchronous Programming pattern](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap) - otherwise known as TAP.
 
+#### Task and Task<T>
+
+> Tasks are constructs used to implement what is known as the [Promise Model of Concurrency](https://en.wikipedia.org/wiki/Futures_and_promises). In short, they offer you a "promise" that work will be completed at a later point, letting you coordinate with the promise with a clean API.
+
+* Task represents a single operation that does not return a value.
+* Task<T> represents a single operation that returns a value of type T.
+
 #### Naming
 
 Asynchronous methods in TAP include the *Async* suffix after the operation name for methods that return awaitable types, for example, an asynchronous Get operation that returns a Task<String> can be named GetAsync.
