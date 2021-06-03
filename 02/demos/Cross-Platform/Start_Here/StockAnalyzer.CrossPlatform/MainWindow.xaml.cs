@@ -58,8 +58,10 @@ namespace StockAnalyzer.CrossPlatform
                 var url = $"{API_URL}/{StockIdentifier.Text}";
 
                 var responseTask = await httpClient.GetAsync(url);
+                
+                var content = await responseTask.Content.ReadAsStringAsync();
 
-                var data = JsonConvert.DeserializeObject<IEnumerable<StockPrice>>(responseTask.);
+                var data = JsonConvert.DeserializeObject<IEnumerable<StockPrice>>(content);
 
                 Stocks.Items = data;
             }
