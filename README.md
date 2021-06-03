@@ -21,3 +21,11 @@ The parameters of a TAP method should match the parameters of its synchronous co
 #### Exceptions
 
 When an exception occurs in an async method that has a return type of `Task` or `Task<TResult>`, the exception object is wrapped in an instance of AggregateException and attached to the Task object. If multiple exceptions are thrown, all of them are stored in the Task object.
+
+### I/O vs CPU bounded work
+
+*CPU Bound* The rate at which an application or process progresses is limited by the speed of the CPU. A typical example of a CPU Bound program is one which includes processes that performs lots of calculations. Example program: [Perform a calculation for a game](https://docs.microsoft.com/en-us/dotnet/csharp/async#cpu-bound-example-perform-a-calculation-for-a-game)
+
+*I/O Bound* A task that processes data, from disk or via a network, is likely to be I/O bound(input/output). Example program: [Download data from a web service](https://docs.microsoft.com/en-us/dotnet/csharp/async#io-bound-example-download-data-from-a-web-service)
+
+When optimizing a program, it is good to know if you are CPU bound or I/O bound(memory bound or cache bound), to know where to optimize.
