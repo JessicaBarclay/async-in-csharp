@@ -35,4 +35,20 @@ When an exception occurs in an async method that has a return type of `Task` or 
 
 **I/O Bound** A task that processes data, from disk or via a network, is likely to be I/O bound(input/output). Example program: [Download data from a web service](https://docs.microsoft.com/en-us/dotnet/csharp/async#io-bound-example-download-data-from-a-web-service)
 
-When optimizing a program, it is good to know if you are CPU bound or I/O bound(memory bound or cache bound), to know where to optimize.
+**Two questions you should ask before you write any asynchronous code**
+
+NOTE: Taken from the Microsoft docs https://docs.microsoft.com/en-us/dotnet/csharp/async#recognize-cpu-bound-and-io-bound-work
+
+When optimizing a program, it is good to know if you are CPU bound or I/O bound, to know where to optimize.
+
+* *Will your code be "waiting" for something, such as data from a database?*
+
+If your answer is "yes", then your work is I/O-bound.
+
+* *Will your code be performing an expensive computation?*
+
+If you answered "yes", then your work is CPU-bound.
+
+If the work you have is I/O-bound, use async and await without Task.Run. You should not use the Task Parallel Library. The reason for this is outlined in [Async in Depth](https://docs.microsoft.com/en-us/dotnet/standard/async-in-depth).
+
+If the work you have is CPU-bound and you care about responsiveness, use async and await, but spawn off the work on another thread with Task.Run. If the work is appropriate for concurrency and parallelism, also consider using the [Task Parallel Library](https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/task-parallel-library-tpl).
