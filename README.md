@@ -74,9 +74,7 @@ If the work you have is CPU-bound and you care about responsiveness, use async a
 ### Async vs Parallel vs Concurrent
 
 **Asynchronous** 
-Async principles are suitable for I/O operations. With an asynchronous operation, you subscribe to when that operation completes.
-
-Async describes how individual threads are used. 
+Async principles are suitable for I/O operations. With an asynchronous operation, you subscribe to when that operation completes. In .NET, async describes how individual threads are used by using the keywords `async` and `await`. 
 
 **Parallelism** 
 Parallel programming makes use of as much CPU as possible. The Task Parallel library in .NET allows asynchronous as well as parallel programming, you can also combine the two. Parallelism is great for performing x amount of the same task, dividing the work between multiple threads.
