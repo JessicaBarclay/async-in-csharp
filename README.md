@@ -30,6 +30,10 @@ You can use the `await` keyword in C# to asynchronously await `Task` and `Task<T
 
 Use `await` with a `Task` or `Task<T>` to retrieve results and validate that it completed successfully.
 
+Continuation
+The `await` keyword introduces a continuation - allow you to get back to the original context, or thread.
+Code *after* an await statement, will be executed once a Task completes successfully.
+
 #### Naming
 
 Asynchronous methods in TAP include the `async` suffix after the operation name for methods that return awaitable types, for example, an asynchronous `Get` operation that returns a `Task<String>` can be named `GetAsync`.
