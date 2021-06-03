@@ -31,8 +31,8 @@ You can use the `await` keyword in C# to asynchronously await `Task` and `Task<T
 Use `await` with a `Task` or `Task<T>` to retrieve results and validate that it completed successfully.
 
 Continuation
-The `await` keyword introduces a continuation - allow you to get back to the original context, or thread.
-Code *after* an await statement, will be executed once a Task completes successfully.
+The `await` keyword introduces a continuation - allowing you to get back to the original context, or thread.
+Code *after* an await statement, will be executed once a Task completes successfully - then you will be back on the continuation.
 
 #### Naming
 
