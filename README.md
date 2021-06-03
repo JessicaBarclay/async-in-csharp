@@ -28,11 +28,13 @@ You can use the `await` keyword in C# to asynchronously await `Task` and `Task<T
 * When the `await` keyword is applied, it suspends the calling method and yields control back to its caller until the awaited task is complete.
 * `await` can only be used inside an `async` method.
 
+Use `await` with a `Task` or `Task<T>` to retrieve results and validate that it completed successfully.
+
 #### Naming
 
 Asynchronous methods in TAP include the `async` suffix after the operation name for methods that return awaitable types, for example, an asynchronous `Get` operation that returns a `Task<String>` can be named `GetAsync`.
 
-The parameters of a TAP method should match the parameters of its synchronous counterpart and should be provided in the same order. However, out and ref parameters are exempt from this rule and should be avoided entirely.
+The parameters of a TAP method should match the parameters of its synchronous counterpart and should be provided in the same order. However, `out` and `ref` parameters are exempt from this rule and should be avoided entirely.
 
 #### Exceptions
 
@@ -63,8 +65,15 @@ If the work you have is I/O-bound, use async and await without Task.Run. You sho
 If the work you have is CPU-bound and you care about responsiveness, use async and await, but spawn off the work on another thread with Task.Run. If the work is appropriate for concurrency and parallelism, also consider using the [Task Parallel Library](https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/task-parallel-library-tpl).
 
 
-### async vs parallel vs concurrent
+### Async vs Parallel vs Concurrent
 
-Asynchronous principle are suitable for I/O operations. With an asynchronous operation, you subscribe to when that operation completes.
+**Asynchronous** 
+Async principles are suitable for I/O operations. With an asynchronous operation, you subscribe to when that operation completes.
 
-Parallel programming makes use of as much CPU as possible. The Task Parallel library in .NET allows asynchronous as well as parallel programming, you can also combine the two.
+Async describes how individual threads are used. 
+
+**Parallelism** 
+Parallel programming makes use of as much CPU as possible. The Task Parallel library in .NET allows asynchronous as well as parallel programming, you can also combine the two. Parallelism is great for performing x amount of the same task, dividing the work between multiple threads.
+
+**Concurrency**
+In the context of .NET, concurrency is almost always associated with execution on simultaneous threads. Different threads, doing different things at the same time. An example - a web app receives a request, begins processing that request, then another requests comes in and this new request begins to be processed on another thread.
