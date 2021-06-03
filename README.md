@@ -19,6 +19,8 @@ The recommended asynchronous pattern to follow in modern .NET is the [Task-based
 * `Task` represents a single operation that does not return a value.
 * `Task<T>` represents a single operation that returns a value of type `T`.
 
+Word of warning - calling `Result` or `Wait` may cause a deadlock to your application.
+
 #### `async` and `await`
 You can use the `await` keyword in C# to asynchronously await `Task` and `Task<T>` objects. When you're awaiting a `Task`, the await expression is of type `void`. When you're awaiting a `Task<T>`, the `await` expression is of type `T`. An `await` expression must occur inside the body of an asynchronous method, marked with the `async` keyword in the method signature.
 
@@ -59,3 +61,10 @@ If you answered "yes", then your work is CPU-bound.
 If the work you have is I/O-bound, use async and await without Task.Run. You should not use the Task Parallel Library. The reason for this is outlined in [Async in Depth](https://docs.microsoft.com/en-us/dotnet/standard/async-in-depth).
 
 If the work you have is CPU-bound and you care about responsiveness, use async and await, but spawn off the work on another thread with Task.Run. If the work is appropriate for concurrency and parallelism, also consider using the [Task Parallel Library](https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/task-parallel-library-tpl).
+
+
+### async vs parallel vs concurrent
+
+Asynchronous principle are suitable for I/O operations. With an asynchronous operation, you subscribe to when that operation completes.
+
+Parallel programming makes use of as much CPU as possible. The Task Parallel library in .NET allows asynchronous as well as parallel programming, you can also combine the two.
