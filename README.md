@@ -34,6 +34,8 @@ Continuation
 The `await` keyword introduces a continuation - allowing you to get back to the original context, or thread.
 Code *after* an await statement, will be executed once a Task completes successfully - then you will be back on the continuation.
 
+NOTE: `async void` is evil. Unless used in the scenario where EventHandlers are called. Otherwise AVOID.
+
 #### Naming
 
 Asynchronous methods in TAP include the `async` suffix after the operation name for methods that return awaitable types, for example, an asynchronous `Get` operation that returns a `Task<String>` can be named `GetAsync`.
