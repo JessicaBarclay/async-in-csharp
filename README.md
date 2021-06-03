@@ -12,7 +12,7 @@ Asynchronous programming allows an application to run a unit of work separately 
 
 The recommended asynchronous pattern to follow in modern .NET is the [Task-based Asynchronous Programming pattern](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap) - otherwise known as TAP.
 
-#### Task and Task<T>
+#### `Task` and `Task<T>`
 
 > Tasks are constructs used to implement what is known as the [Promise Model of Concurrency](https://en.wikipedia.org/wiki/Futures_and_promises). In short, they offer you a "promise" that work will be completed at a later point, letting you coordinate with the promise with a clean API.
 
@@ -31,8 +31,8 @@ When an exception occurs in an async method that has a return type of `Task` or 
 
 ### I/O vs CPU bounded work
 
-*CPU Bound* The rate at which an application or process progresses is limited by the speed of the CPU. A typical example of a CPU Bound program is one which includes processes that performs lots of calculations. Example program: [Perform a calculation for a game](https://docs.microsoft.com/en-us/dotnet/csharp/async#cpu-bound-example-perform-a-calculation-for-a-game)
+**CPU Bound** The rate at which an application or process progresses is limited by the speed of the CPU. A typical example of a CPU Bound program is one which includes processes that performs lots of calculations. Example program: [Perform a calculation for a game](https://docs.microsoft.com/en-us/dotnet/csharp/async#cpu-bound-example-perform-a-calculation-for-a-game)
 
-*I/O Bound* A task that processes data, from disk or via a network, is likely to be I/O bound(input/output). Example program: [Download data from a web service](https://docs.microsoft.com/en-us/dotnet/csharp/async#io-bound-example-download-data-from-a-web-service)
+**I/O Bound** A task that processes data, from disk or via a network, is likely to be I/O bound(input/output). Example program: [Download data from a web service](https://docs.microsoft.com/en-us/dotnet/csharp/async#io-bound-example-download-data-from-a-web-service)
 
 When optimizing a program, it is good to know if you are CPU bound or I/O bound(memory bound or cache bound), to know where to optimize.
