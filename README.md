@@ -2,13 +2,13 @@
 
 Exercises and notes on Asynchronous Programming from the PluralSight course [Applying Asynchronous Programming in C#](https://app.pluralsight.com/library/courses/applying-asynchronous-programming-c-sharp/table-of-contents)
 
-## What is asynchronous programming(in C#/.NET), and when to use it?
+### What is asynchronous programming(in C#/.NET), and when to use it?
 
 > Asynchronous: not having to wait for one task to finish before starting another.
 
 Asynchronous programming allows an application to run a unit of work separately from the main application thread, allowing tasks to run in parallel. When used correctly, applications can benefit from improved performance and responsiveness.
 
-### Async pattern in .NET
+#### Task-based Asynchronous Programming(TAP) pattern in .NET
 
 The recommended asynchronous pattern to follow in modern .NET is the [Task-based Asynchronous Programming pattern](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap) - otherwise known as TAP.
 
