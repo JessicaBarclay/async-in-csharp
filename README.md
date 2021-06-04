@@ -1,4 +1,4 @@
-# async-in-csharp-pluralsight
+# async-in-csharp
 
 Exercises and notes on Asynchronous Programming from the PluralSight course [Applying Asynchronous Programming in C#](https://app.pluralsight.com/library/courses/applying-asynchronous-programming-c-sharp/table-of-contents)
 
